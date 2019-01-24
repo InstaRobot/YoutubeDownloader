@@ -27,6 +27,6 @@ struct Worker {
       return location
     }
 
-    return location.substring(to: location.index(before: location.endIndex))
+    return String(location[location.startIndex..<location.endIndex])
   }
 }

@@ -16,6 +16,6 @@ struct Utils {
     alert.informativeText = message
     alert.addButton(withTitle: "OK")
 
-    alert.beginSheetModal(for: NSApplication.shared().keyWindow!, completionHandler: nil)
+    alert.beginSheetModal(for: NSApplication.shared.keyWindow!, completionHandler: nil)
   }
 }
