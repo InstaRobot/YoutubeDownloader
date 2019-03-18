@@ -57,6 +57,7 @@
 		D203D0151E7490B500F5E0A6 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		D203D0171E74913500F5E0A6 /* Worker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Worker.swift; sourceTree = "<group>"; };
 		D203D0191E7495C500F5E0A6 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		D26FF858223F972D0006C1D7 /* YoutubeDownloader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YoutubeDownloader.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +108,7 @@
 		D203CFDD1E74691800F5E0A6 /* YoutubeDownloader */ = {
 			isa = PBXGroup;
 			children = (
+				D26FF858223F972D0006C1D7 /* YoutubeDownloader.entitlements */,
 				D203D0121E7471FD00F5E0A6 /* Extensions */,
 				D203D0091E7469EE00F5E0A6 /* cli */,
 				D203D00A1E7469EE00F5E0A6 /* Main */,
@@ -241,6 +243,11 @@
 					D203CFDA1E74691800F5E0A6 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					D203CFEB1E74691800F5E0A6 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -471,6 +478,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = YoutubeDownloader/YoutubeDownloader.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = YoutubeDownloader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -483,6 +491,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = YoutubeDownloader/YoutubeDownloader.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = YoutubeDownloader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";

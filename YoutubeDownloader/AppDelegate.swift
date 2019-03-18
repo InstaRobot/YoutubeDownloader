@@ -10,17 +10,46 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-
-
-  func applicationDidFinishLaunching(_ aNotification: Notification) {
-    // Insert code here to initialize your application
-  }
-
-  func applicationWillTerminate(_ aNotification: Notification) {
-    // Insert code here to tear down your application
-  }
-
-
+    
+    private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+    private let popover = NSPopover()
+    
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        setupMenu()
+        setupPopover()
+    }
+    
+    // MARK: - Logic
+    private func setupMenu() {
+        if let button = statusItem.button {
+            button.image = NSImage(named: NSImage.Name("icon"))
+            button.action = #selector(togglePopover(_:))
+        }
+    }
+    
+    private func setupPopover() {
+        popover.behavior = .transient
+        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+        let vc = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("ViewController"))
+        popover.contentViewController = vc as! MainViewController
+    }
+    
+    @objc func togglePopover(_ sender: Any?) {
+        if popover.isShown {
+            closePopover(sender: sender)
+        } else {
+            showPopover(sender: sender)
+        }
+    }
+    
+    func showPopover(sender: Any?) {
+        if let button = statusItem.button {
+            popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+        }
+    }
+    
+    func closePopover(sender: Any?) {
+        popover.performClose(sender)
+    }
 }
 
