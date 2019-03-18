@@ -17,7 +17,6 @@ final class InputRow: NSView {
     setupBackground()
     
     let textField = NSTextField()
-    textField.drawsBackground = true
     textField.backgroundColor = NSColor.white
     
     let button = NSButton(

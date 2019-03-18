@@ -93,6 +93,11 @@ final class MainViewController: NSViewController {
     inputRow.label.stringValue = "\(downloadManager.count)"
     
     inputRow.translatesAutoresizingMaskIntoConstraints = false
+    inputRow.setContentCompressionResistancePriority(
+      NSLayoutConstraint.Priority(rawValue: 1),
+      for: .horizontal
+    )
+
     NSLayoutConstraint.activate([
       inputRow.heightAnchor.constraint(equalToConstant: 50)
     ])
@@ -101,11 +106,6 @@ final class MainViewController: NSViewController {
       context.duration = 0.25
       context.allowsImplicitAnimation = true
       stackView.insertArrangedSubview(inputRow, at: 1)
-      
-      NSLayoutConstraint.activate([
-        inputRow.leftAnchor.constraint(equalTo: stackView.leftAnchor),
-        inputRow.rightAnchor.constraint(equalTo: stackView.rightAnchor)
-      ])
       
       view.layoutSubtreeIfNeeded()
     }, completionHandler: nil)
