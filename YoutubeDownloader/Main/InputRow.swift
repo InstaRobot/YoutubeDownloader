@@ -37,11 +37,11 @@ final class InputRow: NSView {
     
     NSLayoutConstraint.activate([
       label.centerYAnchor.constraint(equalTo: centerYAnchor),
-      label.leftAnchor.constraint(equalTo: leftAnchor),
+      label.leftAnchor.constraint(equalTo: leftAnchor, constant: 8),
       
       textField.leftAnchor.constraint(equalTo: label.rightAnchor, constant: 8),
       textField.centerYAnchor.constraint(equalTo: centerYAnchor),
-      textField.rightAnchor.constraint(equalTo: button.leftAnchor, constant: -8),
+      textField.rightAnchor.constraint(equalTo: button.leftAnchor),
       
       button.rightAnchor.constraint(equalTo: rightAnchor),
       button.centerYAnchor.constraint(equalTo: centerYAnchor),
