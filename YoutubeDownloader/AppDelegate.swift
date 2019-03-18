@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private func setupPopover() {
         popover.behavior = .transient
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        let vc = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("ViewController"))
+        let vc = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("MainViewController"))
         popover.contentViewController = vc as! MainViewController
     }
     
