@@ -38,17 +38,28 @@ final class MainViewController: NSViewController {
       scrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
       scrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
       scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-      scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30)
+      scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30),
+      
+      scrollView.heightAnchor.constraint(equalToConstant: 400)
+    ])
+    
+    let clipView = FlippedClipView()
+    scrollView.contentView = clipView
+    clipView.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      clipView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
+      clipView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
+      clipView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+      clipView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
     ])
 
     scrollView.documentView = stackView
     
     stackView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      stackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
-      stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-      stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-      stackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor)
+      stackView.leftAnchor.constraint(equalTo: clipView.leftAnchor),
+      stackView.topAnchor.constraint(equalTo: clipView.topAnchor),
+      stackView.rightAnchor.constraint(equalTo: clipView.rightAnchor)
     ])
   }
   
@@ -56,6 +67,7 @@ final class MainViewController: NSViewController {
     stackView.orientation = .vertical
     stackView.edgeInsets = NSEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
     
+    addRow.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
       addRow.heightAnchor.constraint(equalToConstant: 40)
     ])
@@ -78,7 +90,7 @@ final class MainViewController: NSViewController {
     NSAnimationContext.runAnimationGroup({context in
       context.duration = 0.25
       context.allowsImplicitAnimation = true
-      stackView.insertArrangedSubview(inputRow, at: 0)
+      stackView.insertArrangedSubview(inputRow, at: 1)
       view.layoutSubtreeIfNeeded()
     }, completionHandler: nil)
   }
@@ -130,5 +142,11 @@ extension MainViewController: TaskDelegate {
   func taskDidComplete(task: Task) {
     self.task = nil
 //    startButton.title = "Start"
+  }
+}
+
+final class FlippedClipView: NSClipView {
+  override var isFlipped: Bool {
+    return true
   }
 }
