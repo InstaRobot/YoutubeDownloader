@@ -19,7 +19,21 @@ struct Worker {
 
     let correctLocation = correct(location: location)
     
-    return ["--output", "\(correctLocation)/%(title)s.%(ext)s", link]
+    var paths = [String]()
+    paths = [
+      "--output",
+      "\(correctLocation)/%(title)s.%(ext)s"
+    ]
+    
+    if RuntimeConfig.savedAsMp3 {
+      paths.append(contentsOf: [
+        "--extract-audio",
+        "--audio-format", "mp3"
+      ])
+    }
+    
+    paths.append(link)
+    return paths
   }
 
   func correct(location: String) -> String {
