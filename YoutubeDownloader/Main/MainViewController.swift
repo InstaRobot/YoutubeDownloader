@@ -44,6 +44,8 @@ final class MainViewController: NSViewController {
     ])
     
     let clipView = FlippedClipView()
+    clipView.drawsBackground = false
+    
     scrollView.contentView = clipView
     clipView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
