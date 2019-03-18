@@ -16,4 +16,11 @@ class YoutubeDownloaderTests: XCTestCase {
     let name = worker.findName(text: string)
     XCTAssertEqual(name, "Police - how to catch the thief.mp4")
   }
+  
+  func testFindPercentage() {
+    let worker = Worker()
+    let string = "[download]  90.1% of 261.94MiB at 10.39MiB/s ETA 00:02"
+    let percentage = worker.findPercentage(text: string)
+    XCTAssertEqual(percentage, 90.1)
+  }
 }

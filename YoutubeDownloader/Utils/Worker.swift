@@ -45,23 +45,18 @@ struct Worker {
     }
   }
   
-  func findPercentage(text: String) -> Int {
+  func findPercentage(text: String) -> Double {
     // [download] 100% of 1.09MiB in 00:00
-    let pattern = "\\[download] \\d*%"
+    let pattern = "\\d+(?:\\.\\d+)?%"
     let string = regex(text: text, pattern: pattern)
     let trimmed = string
-      .replacingOccurrences(of: "[download] ", with: "")
       .replacingOccurrences(of: "%", with: "")
     
-    return Int(trimmed) ?? 0
+    return Double(trimmed) ?? 0
   }
   
   func findName(text: String) -> String {
     // [download] Destination: /Users/khoa/Library/Containers/com.fantageek.YoutubeDownloader/Data/Downloads/Police - how to catch the thief.mp4
-    guard text.starts(with: "[download] Destination:") else {
-      return ""
-    }
-    
     let pattern = "Downloads/.*"
     let string = regex(text: text, pattern: pattern)
     let trimmed = string

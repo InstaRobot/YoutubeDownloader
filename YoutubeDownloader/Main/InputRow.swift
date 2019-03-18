@@ -150,6 +150,10 @@ final class InputRow: NSView {
 
 extension InputRow: TaskDelegate {
   func task(task: Task, didOutput string: String) {
+    guard string.starts(with: "[download]") else {
+      return
+    }
+    
     let worker = Worker()
     
     let percentage = Double(worker.findPercentage(text: string))
