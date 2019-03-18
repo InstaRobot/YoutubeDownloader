@@ -106,7 +106,8 @@ final class InputRow: NSView {
   }
   
   @objc func onClosePress() {
-    
+    task?.stop()
+    removeFromSuperview()
   }
   
   private func toDownloadMode() {
