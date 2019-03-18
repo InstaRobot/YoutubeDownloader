@@ -90,7 +90,7 @@ final class MainViewController: NSViewController {
     let inputRow = InputRow()
     
     downloadManager.count += 1
-    inputRow.label.stringValue = "\(downloadManager.count)"
+    inputRow.numberLabel.stringValue = "\(downloadManager.count)"
     
     inputRow.translatesAutoresizingMaskIntoConstraints = false
     inputRow.setContentCompressionResistancePriority(

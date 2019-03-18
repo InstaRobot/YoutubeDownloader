@@ -21,7 +21,6 @@
 		D203D01A1E7495C500F5E0A6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D203D0191E7495C500F5E0A6 /* Utils.swift */; };
 		D26FF85A223F9A7E0006C1D7 /* AddRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26FF859223F9A7E0006C1D7 /* AddRow.swift */; };
 		D26FF85C223F9CE90006C1D7 /* InputRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26FF85B223F9CE90006C1D7 /* InputRow.swift */; };
-		D26FF85E223F9CFE0006C1D7 /* DownloadRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26FF85D223F9CFE0006C1D7 /* DownloadRow.swift */; };
 		D26FF860223FBCBE0006C1D7 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26FF85F223FBCBE0006C1D7 /* Label.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +63,6 @@
 		D26FF858223F972D0006C1D7 /* YoutubeDownloader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YoutubeDownloader.entitlements; sourceTree = "<group>"; };
 		D26FF859223F9A7E0006C1D7 /* AddRow.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = AddRow.swift; sourceTree = "<group>"; tabWidth = 2; };
 		D26FF85B223F9CE90006C1D7 /* InputRow.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = InputRow.swift; sourceTree = "<group>"; tabWidth = 2; };
-		D26FF85D223F9CFE0006C1D7 /* DownloadRow.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = DownloadRow.swift; sourceTree = "<group>"; tabWidth = 2; };
 		D26FF85F223FBCBE0006C1D7 /* Label.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; tabWidth = 2; };
 /* End PBXFileReference section */
 
@@ -161,7 +159,6 @@
 				D203D00B1E7469EE00F5E0A6 /* MainViewController.swift */,
 				D26FF859223F9A7E0006C1D7 /* AddRow.swift */,
 				D26FF85B223F9CE90006C1D7 /* InputRow.swift */,
-				D26FF85D223F9CFE0006C1D7 /* DownloadRow.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -334,7 +331,6 @@
 				D203D0161E7490B500F5E0A6 /* Config.swift in Sources */,
 				D203D0111E746A7D00F5E0A6 /* Task.swift in Sources */,
 				D203CFDF1E74691800F5E0A6 /* AppDelegate.swift in Sources */,
-				D26FF85E223F9CFE0006C1D7 /* DownloadRow.swift in Sources */,
 				D26FF85C223F9CE90006C1D7 /* InputRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

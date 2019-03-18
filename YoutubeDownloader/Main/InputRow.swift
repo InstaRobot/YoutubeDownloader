@@ -9,43 +9,40 @@
 import AppKit
 
 final class InputRow: NSView {
-  let label = Label()
+  let numberLabel = Label()
+  let contentView = NSView()
+  let inputTextField = NSTextField()
+  let button = NSButton(image: NSImage(named: NSImage.Name("download"))!, target: nil, action: nil)
 
   override init(frame frameRect: NSRect) {
     super.init(frame: frameRect)
     
     setupBackground()
-    
-    let textField = NSTextField()
-    
-    let button = NSButton(
-      image: NSImage(named: NSImage.Name("download"))!,
-      target: self,
-      action: #selector(onButtonPress)
-    )
-    
     button.isBordered = false
     
-    addSubview(textField)
+    addSubview(contentView)
     addSubview(button)
-    addSubview(label)
+    addSubview(numberLabel)
     
-    label.translatesAutoresizingMaskIntoConstraints = false
-    textField.translatesAutoresizingMaskIntoConstraints = false
+    numberLabel.translatesAutoresizingMaskIntoConstraints = false
+    contentView.translatesAutoresizingMaskIntoConstraints = false
     button.translatesAutoresizingMaskIntoConstraints = false
     
     NSLayoutConstraint.activate([
-      label.centerYAnchor.constraint(equalTo: centerYAnchor),
-      label.leftAnchor.constraint(equalTo: leftAnchor, constant: 8),
+      numberLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+      numberLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 8),
       
-      textField.leftAnchor.constraint(equalTo: label.rightAnchor, constant: 8),
-      textField.centerYAnchor.constraint(equalTo: centerYAnchor),
-      textField.rightAnchor.constraint(equalTo: button.leftAnchor),
+      contentView.leftAnchor.constraint(equalTo: numberLabel.rightAnchor, constant: 8),
+      contentView.topAnchor.constraint(equalTo: topAnchor),
+      contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
+      contentView.rightAnchor.constraint(equalTo: button.leftAnchor),
       
       button.rightAnchor.constraint(equalTo: rightAnchor),
       button.centerYAnchor.constraint(equalTo: centerYAnchor),
       button.heightAnchor.constraint(equalToConstant: 30)
     ])
+    
+    toInputMode()
   }
   
   required init?(coder decoder: NSCoder) {
@@ -73,7 +70,31 @@ final class InputRow: NSView {
     ])
   }
   
-  @objc func onButtonPress() {
+  private func toInputMode()  {
+    contentView.addSubview(inputTextField)
+    inputTextField.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      inputTextField.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+      inputTextField.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+      inputTextField.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+    ])
+    
+    button.target = self
+    button.action = #selector(onDownloadPress)
+  }
   
+  @objc func onDownloadPress() {
+    toDownloadMode()
+  }
+  
+  @objc func onClosePress() {
+    
+  }
+  
+  private func toDownloadMode() {
+    inputTextField.removeFromSuperview()
+    button.image = NSImage(named: NSImage.Name("delete"))!
+    button.action = #selector(onClosePress)
+    
   }
 }
