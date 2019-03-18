@@ -56,10 +56,10 @@ struct Worker {
     return Int(trimmed) ?? 0
   }
   
-  func findName(text: String) -> String? {
+  func findName(text: String) -> String {
     // [download] Destination: /Users/khoa/Library/Containers/com.fantageek.YoutubeDownloader/Data/Downloads/Police - how to catch the thief.mp4
     guard text.starts(with: "[download] Destination:") else {
-      return nil
+      return ""
     }
     
     let pattern = "Downloads/.*"

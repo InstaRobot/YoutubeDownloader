@@ -48,7 +48,7 @@
 		D203CFE51E74691800F5E0A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D203CFE71E74691800F5E0A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D203CFEC1E74691800F5E0A6 /* YoutubeDownloaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YoutubeDownloaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D203CFF01E74691800F5E0A6 /* YoutubeDownloaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeDownloaderTests.swift; sourceTree = "<group>"; };
+		D203CFF01E74691800F5E0A6 /* YoutubeDownloaderTests.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = YoutubeDownloaderTests.swift; sourceTree = "<group>"; tabWidth = 2; };
 		D203CFF21E74691800F5E0A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D203CFF71E74691800F5E0A6 /* YoutubeDownloaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YoutubeDownloaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D203CFFB1E74691800F5E0A6 /* YoutubeDownloaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeDownloaderUITests.swift; sourceTree = "<group>"; };

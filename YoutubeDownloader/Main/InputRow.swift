@@ -150,8 +150,6 @@ final class InputRow: NSView {
 
 extension InputRow: TaskDelegate {
   func task(task: Task, didOutput string: String) {
-    titleLabel.stringValue = string
-    
     let worker = Worker()
     
     let percentage = Double(worker.findPercentage(text: string))
@@ -161,8 +159,8 @@ extension InputRow: TaskDelegate {
       progressIndicator.doubleValue = percentage
     }
     
-    if (titleLabel.stringValue.isEmpty) {
-       titleLabel.stringValue = name ?? ""
+    if (titleLabel.stringValue.isEmpty && !name.isEmpty) {
+       titleLabel.stringValue = name
     }
     
     descriptionLabel.stringValue = string
