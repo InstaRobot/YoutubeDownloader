@@ -13,6 +13,7 @@ final class MainViewController: NSViewController {
   var task: Task?
   private let stackView = NSStackView()
   private let addRow = AddRow()
+  private let scrollView = NSScrollView()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -22,25 +23,64 @@ final class MainViewController: NSViewController {
 
   // MARK: - Setup
 
-  func setup() {
-    view.addSubview(stackView)
-    stackView.translatesAutoresizingMaskIntoConstraints = false
-
+  private func setup() {
+    setupScrollView()
+    setupStackView()
+  }
+  
+  private func setupScrollView() {
+    view.addSubview(scrollView)
+    scrollView.translatesAutoresizingMaskIntoConstraints = false
+    scrollView.hasVerticalScroller = true
+    scrollView.drawsBackground = false
+    
     NSLayoutConstraint.activate([
-      stackView.leftAnchor.constraint(equalTo: view.leftAnchor),
-      stackView.rightAnchor.constraint(equalTo: view.rightAnchor),
-      stackView.topAnchor.constraint(equalTo: view.topAnchor),
-      stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+      scrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
+      scrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
+      scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+      scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30)
+    ])
+
+    scrollView.documentView = stackView
+    
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      stackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
+      stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+      stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+      stackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor)
+    ])
+  }
+  
+  private func setupStackView() {
+    stackView.orientation = .vertical
+    stackView.edgeInsets = NSEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+    
+    NSLayoutConstraint.activate([
+      addRow.heightAnchor.constraint(equalToConstant: 40)
     ])
     
-    stackView.wantsLayer = true
-    stackView.layer?.backgroundColor = NSColor.red.cgColor
-    
-    addRow.onPress = { [weak stackView] in
-      stackView?.addArrangedSubview(InputRow())
+    addRow.onPress = { [weak self] in
+      self?.addInput()
     }
     
     stackView.addArrangedSubview(addRow)
+  }
+  
+  private func addInput() {
+    let inputRow = InputRow()
+    
+    inputRow.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      inputRow.heightAnchor.constraint(equalToConstant: 50)
+    ])
+    
+    NSAnimationContext.runAnimationGroup({context in
+      context.duration = 0.25
+      context.allowsImplicitAnimation = true
+      stackView.insertArrangedSubview(inputRow, at: 0)
+      view.layoutSubtreeIfNeeded()
+    }, completionHandler: nil)
   }
 
   // MARK: - Action

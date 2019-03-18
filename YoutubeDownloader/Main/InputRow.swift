@@ -13,7 +13,15 @@ final class InputRow: NSView {
     super.init(frame: frameRect)
     
     let textField = NSTextField()
-    let button = NSButton()
+    textField.backgroundColor = NSColor.white
+    
+    let button = NSButton(
+      image: NSImage(named: NSImage.Name("download"))!,
+      target: self,
+      action: #selector(onButtonPress)
+    )
+    
+    button.isBordered = false
     
     addSubview(textField)
     addSubview(button)
@@ -23,16 +31,20 @@ final class InputRow: NSView {
     
     NSLayoutConstraint.activate([
       textField.leftAnchor.constraint(equalTo: leftAnchor),
-      textField.topAnchor.constraint(equalTo: topAnchor),
-      textField.bottomAnchor.constraint(equalTo: bottomAnchor),
-      textField.rightAnchor.constraint(equalTo: rightAnchor, constant: -30),
+      textField.centerYAnchor.constraint(equalTo: centerYAnchor),
+      textField.rightAnchor.constraint(equalTo: button.leftAnchor, constant: -20),
       
       button.rightAnchor.constraint(equalTo: rightAnchor),
-      button.centerYAnchor.constraint(equalTo: centerYAnchor)
+      button.centerYAnchor.constraint(equalTo: centerYAnchor),
+      button.heightAnchor.constraint(equalToConstant: 30)
     ])
   }
   
   required init?(coder decoder: NSCoder) {
     fatalError()
+  }
+  
+  @objc func onButtonPress() {
+  
   }
 }

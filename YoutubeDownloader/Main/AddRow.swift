@@ -20,11 +20,14 @@ final class AddRow: NSView {
       action: #selector(onButtonPress)
     )
     
+    button.isBordered = false
+    
     addSubview(button)
     button.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
       button.centerXAnchor.constraint(equalTo: centerXAnchor),
-      button.centerYAnchor.constraint(equalTo: centerYAnchor)
+      button.centerYAnchor.constraint(equalTo: centerYAnchor),
+      button.heightAnchor.constraint(equalToConstant: 30)
     ])
   }
   
