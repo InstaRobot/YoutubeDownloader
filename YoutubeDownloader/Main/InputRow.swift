@@ -113,6 +113,7 @@ final class InputRow: NSView {
     progressIndicator.minValue = 0
     progressIndicator.maxValue = 100
     progressIndicator.doubleValue = 0
+    progressIndicator.isIndeterminate = false
   
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     progressIndicator.translatesAutoresizingMaskIntoConstraints = false
