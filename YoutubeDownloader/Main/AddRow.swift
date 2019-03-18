@@ -13,10 +13,10 @@ final class AddRow: NSView {
   @IBOutlet weak var mp3Button: NSButton!
     
   @IBAction func onAddButtonPress(_ sender: NSButton) {
-  
+    onPress?()
   }
     
   @IBAction func onMp3ButtonPress(_ sender: NSButton) {
-    onPress?()
+    
   }
 }
