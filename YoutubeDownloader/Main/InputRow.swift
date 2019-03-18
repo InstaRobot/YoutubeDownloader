@@ -97,6 +97,11 @@ final class InputRow: NSView {
   }
   
   @objc func onDownloadPress() {
+    let validator = Validator()
+    if (!validator.validate(string: inputTextField.stringValue)) {
+      return
+    }
+
     toDownloadMode()
   }
   
