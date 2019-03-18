@@ -8,12 +8,17 @@
 
 import Cocoa
 
+final class DownloadManager {
+  var count = 0
+}
+
 final class MainViewController: NSViewController {
 
   var task: Task?
   private let stackView = NSStackView()
   private let addRow = AddRow()
   private let scrollView = NSScrollView()
+  private let downloadManager = DownloadManager()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -84,6 +89,9 @@ final class MainViewController: NSViewController {
   private func addInput() {
     let inputRow = InputRow()
     
+    downloadManager.count += 1
+    inputRow.label.stringValue = "\(downloadManager.count)"
+    
     inputRow.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
       inputRow.heightAnchor.constraint(equalToConstant: 50)
@@ -93,6 +101,12 @@ final class MainViewController: NSViewController {
       context.duration = 0.25
       context.allowsImplicitAnimation = true
       stackView.insertArrangedSubview(inputRow, at: 1)
+      
+      NSLayoutConstraint.activate([
+        inputRow.leftAnchor.constraint(equalTo: stackView.leftAnchor),
+        inputRow.rightAnchor.constraint(equalTo: stackView.rightAnchor)
+      ])
+      
       view.layoutSubtreeIfNeeded()
     }, completionHandler: nil)
   }
