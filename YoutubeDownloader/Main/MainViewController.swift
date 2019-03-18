@@ -96,10 +96,6 @@ final class MainViewController: NSViewController {
       NSLayoutConstraint.Priority(rawValue: 1),
       for: .horizontal
     )
-
-    NSLayoutConstraint.activate([
-      inputRow.heightAnchor.constraint(equalToConstant: 50)
-    ])
     
     NSAnimationContext.runAnimationGroup({context in
       context.duration = 0.25

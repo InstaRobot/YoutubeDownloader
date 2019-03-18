@@ -19,6 +19,8 @@ final class InputRow: NSView {
   
   let titleLabel = Label()
   let progressIndicator = NSProgressIndicator()
+  var heightConstraint: NSLayoutConstraint!
+  let descriptionLabel = Label()
 
   override init(frame frameRect: NSRect) {
     super.init(frame: frameRect)
@@ -34,6 +36,8 @@ final class InputRow: NSView {
     contentView.translatesAutoresizingMaskIntoConstraints = false
     button.translatesAutoresizingMaskIntoConstraints = false
     
+    heightConstraint = heightAnchor.constraint(equalToConstant: 60)
+    
     NSLayoutConstraint.activate([
       numberLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
       numberLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 8),
@@ -45,7 +49,9 @@ final class InputRow: NSView {
       
       button.rightAnchor.constraint(equalTo: rightAnchor),
       button.centerYAnchor.constraint(equalTo: centerYAnchor),
-      button.heightAnchor.constraint(equalToConstant: 30)
+      button.heightAnchor.constraint(equalToConstant: 30),
+      
+      heightConstraint
     ])
     
     toInputMode()
@@ -110,9 +116,13 @@ final class InputRow: NSView {
   
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     progressIndicator.translatesAutoresizingMaskIntoConstraints = false
+    descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
     
     contentView.addSubview(titleLabel)
     contentView.addSubview(progressIndicator)
+    contentView.addSubview(descriptionLabel)
+    
+    heightConstraint.constant = 100
     
     NSLayoutConstraint.activate([
       titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor),
@@ -120,7 +130,10 @@ final class InputRow: NSView {
       
       progressIndicator.leftAnchor.constraint(equalTo: contentView.leftAnchor),
       progressIndicator.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-      progressIndicator.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+      progressIndicator.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
+      
+      descriptionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+      descriptionLabel.topAnchor.constraint(equalTo: progressIndicator.bottomAnchor, constant: 4)
     ])
     
     start(url: inputTextField.stringValue)
@@ -139,10 +152,20 @@ extension InputRow: TaskDelegate {
   func task(task: Task, didOutput string: String) {
     titleLabel.stringValue = string
     
-    let percentage = Worker().findPercentage(text: string)
-    let name = Worker().findName(text: string)
-    progressIndicator.doubleValue = Double(percentage)
-    titleLabel.stringValue = name ?? ""
+    let worker = Worker()
+    
+    let percentage = Double(worker.findPercentage(text: string))
+    let name = worker.findName(text: string)
+    
+    if percentage > progressIndicator.doubleValue {
+      progressIndicator.doubleValue = percentage
+    }
+    
+    if (titleLabel.stringValue.isEmpty) {
+       titleLabel.stringValue = name ?? ""
+    }
+    
+    descriptionLabel.stringValue = string
   }
   
   func taskDidComplete(task: Task) {
