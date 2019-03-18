@@ -17,7 +17,6 @@ final class InputRow: NSView {
     setupBackground()
     
     let textField = NSTextField()
-    textField.backgroundColor = NSColor.white
     
     let button = NSButton(
       image: NSImage(named: NSImage.Name("download"))!,
@@ -57,7 +56,7 @@ final class InputRow: NSView {
     let box = NSBox()
     
     box.boxType = .custom
-    box.alphaValue = 1
+    box.alphaValue = 0.2
     box.borderColor = NSColor.orange
     box.borderType = .grooveBorder
     box.borderWidth = 1
