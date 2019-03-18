@@ -140,7 +140,9 @@ extension InputRow: TaskDelegate {
     titleLabel.stringValue = string
     
     let percentage = Worker().findPercentage(text: string)
+    let name = Worker().findName(text: string)
     progressIndicator.doubleValue = Double(percentage)
+    titleLabel.stringValue = name ?? ""
   }
   
   func taskDidComplete(task: Task) {
