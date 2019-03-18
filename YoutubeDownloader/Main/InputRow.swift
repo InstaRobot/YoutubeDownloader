@@ -9,6 +9,8 @@
 import AppKit
 
 final class InputRow: NSView {
+
+  var task: Task?
   let numberLabel = Label()
   let contentView = NSView()
   let inputTextField = NSTextField()
@@ -116,5 +118,28 @@ final class InputRow: NSView {
       progressIndicator.rightAnchor.constraint(equalTo: contentView.rightAnchor),
       progressIndicator.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
     ])
+    
+    start(url: inputTextField.stringValue)
+  }
+  
+  private func start(url: String) {
+    let worker = Worker()
+    let arguments = worker.parse(link: url, location: Config.shared.location)
+    task = Task()
+    task?.delegate = self
+    task?.run(arguments: arguments)
+  }
+}
+
+extension InputRow: TaskDelegate {
+  func task(task: Task, didOutput string: String) {
+    titleLabel.stringValue = string
+    
+    print(string)
+    let percentage = Worker().findPercentage(text: string)
+  }
+  
+  func taskDidComplete(task: Task) {
+    
   }
 }

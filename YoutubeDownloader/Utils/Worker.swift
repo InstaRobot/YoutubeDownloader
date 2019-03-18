@@ -29,4 +29,19 @@ struct Worker {
 
     return String(location[location.startIndex..<location.endIndex])
   }
+  
+  func findPercentage(text: String) -> String {
+    // [download] 100% of 1.09MiB in 00:00
+    let pattern = "\\[download] \\d*%"
+
+    do {
+      let regex = try NSRegularExpression(pattern: pattern, options: [])
+      let range = NSMakeRange(0, text.count)
+      let result = regex.firstMatch(in: text, options: [], range: range)
+      print(result)
+      return ""
+    } catch {
+      return ""
+    }
+  }
 }

@@ -14,7 +14,6 @@ final class DownloadManager {
 
 final class MainViewController: NSViewController {
 
-  var task: Task?
   private let stackView = NSStackView()
   private let addRow = AddRow()
   private let scrollView = NSScrollView()
@@ -110,54 +109,9 @@ final class MainViewController: NSViewController {
       view.layoutSubtreeIfNeeded()
     }, completionHandler: nil)
   }
-
-  // MARK: - Action
-
-  @IBAction func startButtonTouched(_ sender: NSButton) {
-    if task == nil {
-      start()
-    } else {
-      stop()
-    }
-  }
-
-  func start() {
-//    let worker = Worker()
-//    let arguments = worker.parse(link: linkTextView.string, location: locationTextField.stringValue)
-//
-//    guard !arguments.isEmpty else {
-//      Utils.alert(title: "Error", message: "Please check your inputs")
-//      return
-//    }
-//
-//    startButton.title = "Stop"
-//    consoleTextView.string = ""
-//
-//    task = Task()
-//    task?.delegate = self
-//
-//    task?.run(arguments: arguments)
-  }
-
-  func stop() {
-    task?.stop()
-  }
     
   @IBAction func onQuitButtonPress(_ sender: NSButton) {
     NSApplication.shared.terminate(nil)
-  }
-}
-
-extension MainViewController: TaskDelegate {
-
-  func task(task: Task, didOutput string: String) {
-    let attributedString = NSAttributedString(string: "\(string)\n")
-//    consoleTextView.textStorage?.append(attributedString)
-  }
-
-  func taskDidComplete(task: Task) {
-    self.task = nil
-//    startButton.title = "Start"
   }
 }
 
