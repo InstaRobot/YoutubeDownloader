@@ -13,6 +13,10 @@ final class InputRow: NSView {
   let contentView = NSView()
   let inputTextField = NSTextField()
   let button = NSButton(image: NSImage(named: NSImage.Name("download"))!, target: nil, action: nil)
+  let box = NSBox()
+  
+  let titleLabel = Label()
+  let progressIndicator = NSProgressIndicator()
 
   override init(frame frameRect: NSRect) {
     super.init(frame: frameRect)
@@ -50,15 +54,13 @@ final class InputRow: NSView {
   }
   
   private func setupBackground() {
-    let box = NSBox()
-    
     box.boxType = .custom
-    box.alphaValue = 0.2
+    box.alphaValue = 0.5
     box.borderColor = NSColor.orange
     box.borderType = .grooveBorder
-    box.borderWidth = 1
+    box.borderWidth = 2
     box.cornerRadius = 10
-    box.fillColor = NSColor.orange
+//    box.fillColor = NSColor.orange
     
     addSubview(box)
     box.translatesAutoresizingMaskIntoConstraints = false
@@ -71,6 +73,9 @@ final class InputRow: NSView {
   }
   
   private func toInputMode()  {
+    inputTextField.drawsBackground = true
+    inputTextField.backgroundColor = NSColor.white
+    
     contentView.addSubview(inputTextField)
     inputTextField.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
@@ -95,6 +100,21 @@ final class InputRow: NSView {
     inputTextField.removeFromSuperview()
     button.image = NSImage(named: NSImage.Name("delete"))!
     button.action = #selector(onClosePress)
+    box.borderColor = NSColor.green
+  
+    titleLabel.translatesAutoresizingMaskIntoConstraints = false
+    progressIndicator.translatesAutoresizingMaskIntoConstraints = false
     
+    contentView.addSubview(titleLabel)
+    contentView.addSubview(progressIndicator)
+    
+    NSLayoutConstraint.activate([
+      titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+      titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+      
+      progressIndicator.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+      progressIndicator.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+      progressIndicator.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+    ])
   }
 }
