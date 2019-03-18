@@ -122,7 +122,7 @@ final class InputRow: NSView {
     contentView.addSubview(progressIndicator)
     contentView.addSubview(descriptionLabel)
     
-    heightConstraint.constant = 100
+    heightConstraint.constant = 76
     
     NSLayoutConstraint.activate([
       titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor),
