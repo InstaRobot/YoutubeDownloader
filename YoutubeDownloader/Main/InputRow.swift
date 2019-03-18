@@ -103,6 +103,10 @@ final class InputRow: NSView {
     button.image = NSImage(named: NSImage.Name("delete"))!
     button.action = #selector(onClosePress)
     box.borderColor = NSColor.green
+    
+    progressIndicator.minValue = 0
+    progressIndicator.maxValue = 100
+    progressIndicator.doubleValue = 0
   
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     progressIndicator.translatesAutoresizingMaskIntoConstraints = false
@@ -135,8 +139,8 @@ extension InputRow: TaskDelegate {
   func task(task: Task, didOutput string: String) {
     titleLabel.stringValue = string
     
-    print(string)
     let percentage = Worker().findPercentage(text: string)
+    progressIndicator.doubleValue = Double(percentage)
   }
   
   func taskDidComplete(task: Task) {
