@@ -26,7 +26,7 @@ class MainViewController: NSViewController {
   // MARK: - Setup
 
   func setup() {
-    locationTextField.stringValue = Config.shared.location
+    
   }
 
   // MARK: - Action
@@ -59,6 +59,10 @@ class MainViewController: NSViewController {
 
   func stop() {
     task?.stop()
+  }
+    
+  @IBAction func onQuitButtonPress(_ sender: NSButton) {
+    NSApplication.shared.terminate(nil)
   }
 }
 
