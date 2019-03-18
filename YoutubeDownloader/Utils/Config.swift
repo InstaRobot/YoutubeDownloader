@@ -33,3 +33,7 @@ class Config {
     }
   }
 }
+
+class RuntimeConfig {
+  static var savedAsMp3 = false
+}
