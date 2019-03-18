@@ -24,6 +24,7 @@
 		D26FF860223FBCBE0006C1D7 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26FF85F223FBCBE0006C1D7 /* Label.swift */; };
 		D26FF862223FE1A70006C1D7 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26FF861223FE1A70006C1D7 /* Alert.swift */; };
 		D26FF864223FE1DF0006C1D7 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26FF863223FE1DF0006C1D7 /* Validator.swift */; };
+		D26FF866223FE58D0006C1D7 /* AddRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26FF865223FE58D0006C1D7 /* AddRow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		D26FF85F223FBCBE0006C1D7 /* Label.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; tabWidth = 2; };
 		D26FF861223FE1A70006C1D7 /* Alert.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; tabWidth = 2; };
 		D26FF863223FE1DF0006C1D7 /* Validator.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; tabWidth = 2; };
+		D26FF865223FE58D0006C1D7 /* AddRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				D203D00B1E7469EE00F5E0A6 /* MainViewController.swift */,
 				D26FF859223F9A7E0006C1D7 /* AddRow.swift */,
 				D26FF85B223F9CE90006C1D7 /* InputRow.swift */,
+				D26FF865223FE58D0006C1D7 /* AddRow.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D26FF866223FE58D0006C1D7 /* AddRow.xib in Resources */,
 				D203CFE31E74691800F5E0A6 /* Assets.xcassets in Resources */,
 				D203D00F1E746A3700F5E0A6 /* youtube-dl in Resources */,
 				D203CFE61E74691800F5E0A6 /* Main.storyboard in Resources */,

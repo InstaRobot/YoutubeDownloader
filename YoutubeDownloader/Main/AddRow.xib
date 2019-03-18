@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="AddRow" customModule="YoutubeDownloader" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="140"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gkJ-Mw-NLV">
+                    <rect key="frame" x="20" y="103" width="179" height="24"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Youtube Downloader" id="Y0A-iE-mhe">
+                        <font key="font" metaFont="system" size="20"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zeN-qX-NTi">
+                    <rect key="frame" x="20" y="52" width="184" height="18"/>
+                    <buttonCell key="cell" type="check" title="Saved to Downloads folder" bezelStyle="regularSquare" imagePosition="left" enabled="NO" state="on" inset="2" id="r8R-rB-PKL">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wnt-lg-agv">
+                    <rect key="frame" x="20" y="78" width="108" height="18"/>
+                    <buttonCell key="cell" type="check" title="Saved as mp3" bezelStyle="regularSquare" imagePosition="left" inset="2" id="M7g-Qe-4ER">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onMp3ButtonPress:" target="c22-O7-iKe" id="QBx-26-9Cq"/>
+                    </connections>
+                </button>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="TIX-ip-7e3">
+                    <rect key="frame" x="430" y="55" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="TIX-ip-7e3" secondAttribute="height" multiplier="1:1" id="Z8e-Eb-ORL"/>
+                        <constraint firstAttribute="width" constant="30" id="gVp-JD-hV5"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="plus" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="UAl-VB-Gww">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onAddButtonPress:" target="c22-O7-iKe" id="bF0-Hk-1hA"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="zeN-qX-NTi" firstAttribute="top" secondItem="Wnt-lg-agv" secondAttribute="bottom" constant="12" id="8N4-QO-SHP"/>
+                <constraint firstItem="Wnt-lg-agv" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="22" id="F0c-xU-7ve"/>
+                <constraint firstItem="Wnt-lg-agv" firstAttribute="top" secondItem="gkJ-Mw-NLV" secondAttribute="bottom" constant="9" id="Fp0-af-Tuh"/>
+                <constraint firstItem="zeN-qX-NTi" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="22" id="G5r-uy-46Q"/>
+                <constraint firstItem="TIX-ip-7e3" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="jY5-Bn-sLW"/>
+                <constraint firstItem="gkJ-Mw-NLV" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="13" id="qS5-hI-rOB"/>
+                <constraint firstItem="gkJ-Mw-NLV" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="22" id="qWW-LW-N85"/>
+                <constraint firstAttribute="trailing" secondItem="TIX-ip-7e3" secondAttribute="trailing" constant="20" id="rUm-BK-wDf"/>
+            </constraints>
+            <connections>
+                <outlet property="mp3Button" destination="Wnt-lg-agv" id="YCc-Ru-Ons"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="88"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="plus" width="72" height="72"/>
+    </resources>
+</document>

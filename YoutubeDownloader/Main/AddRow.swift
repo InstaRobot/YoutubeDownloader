@@ -10,33 +10,13 @@ import AppKit
 
 final class AddRow: NSView {
   var onPress: (() -> Void)?
-
-  override init(frame frameRect: NSRect) {
-    super.init(frame: frameRect)
+  @IBOutlet weak var mp3Button: NSButton!
     
-    let button = NSButton(
-      image: NSImage(named: NSImage.Name("plus"))!,
-      target: self,
-      action: #selector(onButtonPress)
-    )
+  @IBAction func onAddButtonPress(_ sender: NSButton) {
+  
+  }
     
-    button.isBordered = false
-    
-    addSubview(button)
-    button.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      button.centerXAnchor.constraint(equalTo: centerXAnchor),
-      button.centerYAnchor.constraint(equalTo: centerYAnchor),
-      button.heightAnchor.constraint(equalToConstant: 30)
-    ])
+  @IBAction func onMp3ButtonPress(_ sender: NSButton) {
+    onPress?()
   }
-  
-  required init?(coder decoder: NSCoder) {
-    fatalError()
-  }
-  
-  @objc func onButtonPress() {
-    self.onPress?()
-  }
-  
 }

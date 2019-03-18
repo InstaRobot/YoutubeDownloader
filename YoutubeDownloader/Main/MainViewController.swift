@@ -15,7 +15,6 @@ final class DownloadManager {
 final class MainViewController: NSViewController {
 
   private let stackView = NSStackView()
-  private let addRow = AddRow()
   private let scrollView = NSScrollView()
   private let downloadManager = DownloadManager()
   
@@ -73,14 +72,18 @@ final class MainViewController: NSViewController {
     stackView.orientation = .vertical
     stackView.edgeInsets = NSEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
     
-    addRow.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      addRow.heightAnchor.constraint(equalToConstant: 40)
-    ])
+    var views: NSArray?
+    NSNib(nibNamed: NSNib.Name("AddRow"), bundle: nil)?.instantiate(withOwner: nil, topLevelObjects: &views)
+    let addRow = views!.compactMap({ $0 as? AddRow }).first!
     
     addRow.onPress = { [weak self] in
       self?.addInput()
     }
+    
+    addRow.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      addRow.heightAnchor.constraint(equalToConstant: 40)
+    ])
     
     stackView.addArrangedSubview(addRow)
   }
