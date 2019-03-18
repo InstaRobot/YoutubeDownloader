@@ -9,10 +9,10 @@
 import AppKit
 
 class Alert {
-  static func show(message: String) {
+  static func show(message: String, informativeText: String) {
     let alert = NSAlert()
     alert.messageText = message
-    alert.informativeText = message
+    alert.informativeText = informativeText
     alert.alertStyle = NSAlert.Style.warning
     alert.addButton(withTitle: "OK")
     alert.runModal()
