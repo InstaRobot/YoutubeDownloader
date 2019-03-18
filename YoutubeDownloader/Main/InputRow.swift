@@ -150,10 +150,22 @@ final class InputRow: NSView {
 
 extension InputRow: TaskDelegate {
   func task(task: Task, didOutput string: String) {
-    guard string.starts(with: "[download]") else {
+    guard string.contains("[download]") else {
       return
     }
     
+    let normalizedString = string
+      .replacingOccurrences(of: "\r", with: "")
+      .replacingOccurrences(of: "\n", with: "")
+    
+    updateUI(string: normalizedString)
+  }
+  
+  func taskDidComplete(task: Task) {
+    
+  }
+  
+  func updateUI(string: String) {
     let worker = Worker()
     
     let percentage = Double(worker.findPercentage(text: string))
@@ -164,13 +176,9 @@ extension InputRow: TaskDelegate {
     }
     
     if (titleLabel.stringValue.isEmpty && !name.isEmpty) {
-       titleLabel.stringValue = name
+      titleLabel.stringValue = name
     }
     
     descriptionLabel.stringValue = string
-  }
-  
-  func taskDidComplete(task: Task) {
-    
   }
 }
