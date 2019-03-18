@@ -8,14 +8,11 @@
 
 import Cocoa
 
-class MainViewController: NSViewController {
+final class MainViewController: NSViewController {
 
   var task: Task?
-
-  @IBOutlet var linkTextView: NSTextView!
-  @IBOutlet weak var locationTextField: NSTextField!
-  @IBOutlet var consoleTextView: NSTextView!
-  @IBOutlet weak var startButton: NSButton!
+  private let stackView = NSStackView()
+  private let addRow = AddRow()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -26,7 +23,24 @@ class MainViewController: NSViewController {
   // MARK: - Setup
 
   func setup() {
+    view.addSubview(stackView)
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+
+    NSLayoutConstraint.activate([
+      stackView.leftAnchor.constraint(equalTo: view.leftAnchor),
+      stackView.rightAnchor.constraint(equalTo: view.rightAnchor),
+      stackView.topAnchor.constraint(equalTo: view.topAnchor),
+      stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+    ])
     
+    stackView.wantsLayer = true
+    stackView.layer?.backgroundColor = NSColor.red.cgColor
+    
+    addRow.onPress = { [weak stackView] in
+      stackView?.addArrangedSubview(InputRow())
+    }
+    
+    stackView.addArrangedSubview(addRow)
   }
 
   // MARK: - Action
@@ -40,21 +54,21 @@ class MainViewController: NSViewController {
   }
 
   func start() {
-    let worker = Worker()
-    let arguments = worker.parse(link: linkTextView.string, location: locationTextField.stringValue)
-
-    guard !arguments.isEmpty else {
-      Utils.alert(title: "Error", message: "Please check your inputs")
-      return
-    }
-
-    startButton.title = "Stop"
-    consoleTextView.string = ""
-
-    task = Task()
-    task?.delegate = self
-
-    task?.run(arguments: arguments)
+//    let worker = Worker()
+//    let arguments = worker.parse(link: linkTextView.string, location: locationTextField.stringValue)
+//
+//    guard !arguments.isEmpty else {
+//      Utils.alert(title: "Error", message: "Please check your inputs")
+//      return
+//    }
+//
+//    startButton.title = "Stop"
+//    consoleTextView.string = ""
+//
+//    task = Task()
+//    task?.delegate = self
+//
+//    task?.run(arguments: arguments)
   }
 
   func stop() {
@@ -70,11 +84,11 @@ extension MainViewController: TaskDelegate {
 
   func task(task: Task, didOutput string: String) {
     let attributedString = NSAttributedString(string: "\(string)\n")
-    consoleTextView.textStorage?.append(attributedString)
+//    consoleTextView.textStorage?.append(attributedString)
   }
 
   func taskDidComplete(task: Task) {
     self.task = nil
-    startButton.title = "Start"
+//    startButton.title = "Start"
   }
 }
