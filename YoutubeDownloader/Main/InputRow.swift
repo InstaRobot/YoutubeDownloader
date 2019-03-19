@@ -67,8 +67,7 @@ final class InputRow: NSView {
     box.borderColor = NSColor.orange
     box.borderType = .grooveBorder
     box.borderWidth = 2
-    box.cornerRadius = 10
-//    box.fillColor = NSColor.orange
+    box.cornerRadius = 4
     
     addSubview(box)
     box.translatesAutoresizingMaskIntoConstraints = false
@@ -80,10 +79,7 @@ final class InputRow: NSView {
     ])
   }
   
-  private func toInputMode()  {
-    inputTextField.drawsBackground = true
-    inputTextField.backgroundColor = NSColor.white
-    
+  private func toInputMode()  {    
     contentView.addSubview(inputTextField)
     inputTextField.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
