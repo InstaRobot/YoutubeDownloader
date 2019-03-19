@@ -32,6 +32,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
         let vc = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("MainViewController"))
         popover.contentViewController = vc as! MainViewController
+        
+        popover.appearance = NSAppearance(named: NSAppearance.Name.aqua)
     }
     
     @objc func togglePopover(_ sender: Any?) {
