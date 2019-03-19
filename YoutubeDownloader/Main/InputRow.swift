@@ -158,6 +158,7 @@ extension InputRow: TaskDelegate {
     }
     
     let normalizedString = string
+      .replacingOccurrences(of: "[download] ", with: "")
       .replacingOccurrences(of: "\r", with: "")
       .replacingOccurrences(of: "\n", with: "")
     
