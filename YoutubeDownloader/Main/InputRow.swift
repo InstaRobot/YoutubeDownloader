@@ -139,6 +139,7 @@ final class InputRow: NSView {
       descriptionLabel.topAnchor.constraint(equalTo: progressIndicator.bottomAnchor, constant: 4)
     ])
     
+    titleLabel.stringValue = "Downloading 🚀"
     start(url: inputTextField.stringValue)
   }
   
@@ -179,7 +180,7 @@ extension InputRow: TaskDelegate {
       progressIndicator.doubleValue = percentage
     }
     
-    if (titleLabel.stringValue.isEmpty && !name.isEmpty) {
+    if (!name.isEmpty) {
       titleLabel.stringValue = name
     }
     
