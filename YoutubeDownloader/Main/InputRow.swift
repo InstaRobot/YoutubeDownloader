@@ -79,7 +79,7 @@ final class InputRow: NSView {
     ])
   }
   
-  private func toInputMode()  {    
+  private func toInputMode()  {
     contentView.addSubview(inputTextField)
     inputTextField.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([

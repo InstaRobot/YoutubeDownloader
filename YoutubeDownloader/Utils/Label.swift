@@ -14,6 +14,8 @@ final class Label: NSTextField {
     
     isBezeled = false
     isEditable = false
+    drawsBackground = true
+    backgroundColor = NSColor.clear
   }
   
   required init?(coder: NSCoder) {
