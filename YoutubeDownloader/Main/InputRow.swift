@@ -81,6 +81,7 @@ final class InputRow: NSView {
     
     leftView.layer?.backgroundColor = Colors.input.cgColor
     
+    inputTextField.placeholderString = "Enter Youtube video url"
     button.target = self
     button.action = #selector(onDownloadPress)
   }
