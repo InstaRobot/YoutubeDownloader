@@ -134,7 +134,10 @@ final class InputRow: NSView {
     ])
     
     titleLabel.stringValue = "Downloading 🚀"
+    descriptionLabel.stringValue = "0%"
     start(url: inputTextField.stringValue)
+    titleLabel.textColor = Colors.text
+    descriptionLabel.textColor = Colors.text
   }
   
   private func start(url: String) {

@@ -13,4 +13,5 @@ struct Colors {
   static let input = NSColor(hex: "#e74c3c")
   static let download = NSColor(hex: "#27ae60")
   static let separator = NSColor(hex: "#bdc3c7")
+  static let text = NSColor(hex: "#ecf0f1")
 }
