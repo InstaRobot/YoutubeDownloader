@@ -17,7 +17,6 @@
                     <rect key="frame" x="20" y="97" width="179" height="24"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Youtube Downloader" id="Y0A-iE-mhe">
                         <font key="font" metaFont="system" size="20"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>

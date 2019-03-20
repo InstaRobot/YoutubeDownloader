@@ -85,7 +85,7 @@ final class MainViewController: NSViewController {
     
     addRow.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      addRow.heightAnchor.constraint(equalToConstant: 120)
+      addRow.heightAnchor.constraint(equalToConstant: 140)
     ])
     
     stackView.addArrangedSubview(addRow)
