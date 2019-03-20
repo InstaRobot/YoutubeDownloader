@@ -22,6 +22,8 @@ final class MainViewController: NSViewController {
     super.viewDidLoad()
 
     setup()
+    view.wantsLayer = true
+    view.layer?.backgroundColor = Colors.background.cgColor
   }
 
   // MARK: - Setup
@@ -70,7 +72,7 @@ final class MainViewController: NSViewController {
   
   private func setupStackView() {
     stackView.orientation = .vertical
-    stackView.edgeInsets = NSEdgeInsets(top: 16, left: 8, bottom: 16, right: 8)
+    stackView.edgeInsets = NSEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
     
     var views: NSArray?
     NSNib(nibNamed: NSNib.Name("AddRow"), bundle: nil)?.instantiate(withOwner: nil, topLevelObjects: &views)
@@ -82,7 +84,7 @@ final class MainViewController: NSViewController {
     
     addRow.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      addRow.heightAnchor.constraint(equalToConstant: 100)
+      addRow.heightAnchor.constraint(equalToConstant: 120)
     ])
     
     stackView.addArrangedSubview(addRow)

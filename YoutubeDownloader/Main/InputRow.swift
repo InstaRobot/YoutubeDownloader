@@ -10,6 +10,7 @@ import AppKit
 
 final class InputRow: NSView {
 
+  let leftView = NSView()
   var task: Task?
   let numberLabel = Label()
   let contentView = NSView()
@@ -25,13 +26,15 @@ final class InputRow: NSView {
   override init(frame frameRect: NSRect) {
     super.init(frame: frameRect)
     
-    setupBackground()
     button.isBordered = false
+    leftView.wantsLayer = true
     
+    addSubview(leftView)
     addSubview(contentView)
     addSubview(button)
-    addSubview(numberLabel)
+    leftView.addSubview(numberLabel)
     
+    leftView.translatesAutoresizingMaskIntoConstraints = false
     numberLabel.translatesAutoresizingMaskIntoConstraints = false
     contentView.translatesAutoresizingMaskIntoConstraints = false
     button.translatesAutoresizingMaskIntoConstraints = false
@@ -39,10 +42,12 @@ final class InputRow: NSView {
     heightConstraint = heightAnchor.constraint(equalToConstant: 60)
     
     NSLayoutConstraint.activate([
-      numberLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-      numberLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 8),
+      leftView.topAnchor.constraint(equalTo: topAnchor),
+      leftView.bottomAnchor.constraint(equalTo: bottomAnchor),
+      leftView.leftAnchor.constraint(equalTo: leftAnchor),
+      leftView.widthAnchor.constraint(equalToConstant: 30),
       
-      contentView.leftAnchor.constraint(equalTo: numberLabel.rightAnchor, constant: 8),
+      contentView.leftAnchor.constraint(equalTo: leftView.rightAnchor),
       contentView.topAnchor.constraint(equalTo: topAnchor),
       contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
       contentView.rightAnchor.constraint(equalTo: button.leftAnchor),
@@ -51,42 +56,30 @@ final class InputRow: NSView {
       button.centerYAnchor.constraint(equalTo: centerYAnchor),
       button.heightAnchor.constraint(equalToConstant: 30),
       
-      heightConstraint
+      heightConstraint,
+      
+      numberLabel.centerXAnchor.constraint(equalTo: leftView.centerXAnchor),
+      numberLabel.centerYAnchor.constraint(equalTo: leftView.centerYAnchor)
     ])
     
     toInputMode()
+    setupBorder()
   }
   
   required init?(coder decoder: NSCoder) {
     fatalError()
   }
   
-  private func setupBackground() {
-    box.boxType = .custom
-    box.alphaValue = 0.5
-    box.borderColor = NSColor.orange
-    box.borderType = .grooveBorder
-    box.borderWidth = 2
-    box.cornerRadius = 4
-    
-    addSubview(box)
-    box.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      box.leftAnchor.constraint(equalTo: leftAnchor),
-      box.rightAnchor.constraint(equalTo: rightAnchor),
-      box.topAnchor.constraint(equalTo: topAnchor),
-      box.bottomAnchor.constraint(equalTo: bottomAnchor)
-    ])
-  }
-  
   private func toInputMode()  {
     contentView.addSubview(inputTextField)
     inputTextField.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      inputTextField.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+      inputTextField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 8),
       inputTextField.rightAnchor.constraint(equalTo: contentView.rightAnchor),
       inputTextField.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
     ])
+    
+    leftView.layer?.backgroundColor = Colors.input.cgColor
     
     button.target = self
     button.action = #selector(onDownloadPress)
@@ -110,7 +103,7 @@ final class InputRow: NSView {
     inputTextField.removeFromSuperview()
     button.image = NSImage(named: NSImage.Name("delete"))!
     button.action = #selector(onClosePress)
-    box.borderColor = NSColor.green
+    leftView.layer?.backgroundColor = Colors.download.cgColor
     
     progressIndicator.minValue = 0
     progressIndicator.maxValue = 100
@@ -128,14 +121,14 @@ final class InputRow: NSView {
     heightConstraint.constant = 76
     
     NSLayoutConstraint.activate([
-      titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+      titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 8),
       titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
       
-      progressIndicator.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+      progressIndicator.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 8),
       progressIndicator.rightAnchor.constraint(equalTo: contentView.rightAnchor),
       progressIndicator.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
       
-      descriptionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+      descriptionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 8),
       descriptionLabel.topAnchor.constraint(equalTo: progressIndicator.bottomAnchor, constant: 4)
     ])
     
@@ -185,5 +178,33 @@ extension InputRow: TaskDelegate {
     }
     
     descriptionLabel.stringValue = string
+  }
+  
+  private func setupBorder() {
+    let topLine = NSView()
+    let bottomLine = NSView()
+    
+    topLine.wantsLayer = true
+    bottomLine.wantsLayer = true
+    
+    topLine.layer?.backgroundColor = Colors.separator.cgColor
+    bottomLine.layer?.backgroundColor = Colors.separator.cgColor
+    
+    topLine.translatesAutoresizingMaskIntoConstraints = false
+    bottomLine.translatesAutoresizingMaskIntoConstraints = false
+    addSubview(topLine)
+    addSubview(bottomLine)
+    
+    NSLayoutConstraint.activate([
+      topLine.topAnchor.constraint(equalTo: topAnchor),
+      topLine.leftAnchor.constraint(equalTo: leftAnchor),
+      topLine.rightAnchor.constraint(equalTo: rightAnchor),
+      topLine.heightAnchor.constraint(equalToConstant: 1),
+      
+      bottomLine.bottomAnchor.constraint(equalTo: bottomAnchor),
+      bottomLine.leftAnchor.constraint(equalTo: leftAnchor),
+      bottomLine.rightAnchor.constraint(equalTo: rightAnchor),
+      bottomLine.heightAnchor.constraint(equalToConstant: 1)
+    ])
   }
 }

@@ -26,6 +26,7 @@
 		D26FF864223FE1DF0006C1D7 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26FF863223FE1DF0006C1D7 /* Validator.swift */; };
 		D26FF866223FE58D0006C1D7 /* AddRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26FF865223FE58D0006C1D7 /* AddRow.xib */; };
 		D2CD121722422BF800681C5F /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD121622422BF800681C5F /* Color+Extension.swift */; };
+		D2CD121922422C4500681C5F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD121822422C4500681C5F /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		D26FF863223FE1DF0006C1D7 /* Validator.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; tabWidth = 2; };
 		D26FF865223FE58D0006C1D7 /* AddRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRow.xib; sourceTree = "<group>"; };
 		D2CD121622422BF800681C5F /* Color+Extension.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; tabWidth = 2; };
+		D2CD121822422C4500681C5F /* Colors.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; tabWidth = 2; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 				D26FF861223FE1A70006C1D7 /* Alert.swift */,
 				D26FF863223FE1DF0006C1D7 /* Validator.swift */,
 				D2CD121622422BF800681C5F /* Color+Extension.swift */,
+				D2CD121822422C4500681C5F /* Colors.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				D203D01A1E7495C500F5E0A6 /* Utils.swift in Sources */,
 				D203D0161E7490B500F5E0A6 /* Config.swift in Sources */,
 				D203D0111E746A7D00F5E0A6 /* Task.swift in Sources */,
+				D2CD121922422C4500681C5F /* Colors.swift in Sources */,
 				D26FF862223FE1A70006C1D7 /* Alert.swift in Sources */,
 				D203CFDF1E74691800F5E0A6 /* AppDelegate.swift in Sources */,
 				D26FF85C223F9CE90006C1D7 /* InputRow.swift in Sources */,

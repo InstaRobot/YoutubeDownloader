@@ -19,4 +19,8 @@ final class AddRow: NSView {
   @IBAction func onMp3ButtonPress(_ sender: NSButton) {
     RuntimeConfig.savedAsMp3 = sender.state == .on
   }
+  
+  override func viewDidMoveToSuperview() {
+    super.viewDidMoveToSuperview()
+  }
 }

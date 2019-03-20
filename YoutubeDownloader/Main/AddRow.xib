@@ -10,11 +10,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe" customClass="AddRow" customModule="YoutubeDownloader" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="100"/>
+            <rect key="frame" x="0.0" y="0.0" width="480" height="133"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gkJ-Mw-NLV">
-                    <rect key="frame" x="20" y="64" width="179" height="24"/>
+                    <rect key="frame" x="20" y="97" width="179" height="24"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Youtube Downloader" id="Y0A-iE-mhe">
                         <font key="font" metaFont="system" size="20"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -22,14 +22,14 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zeN-qX-NTi">
-                    <rect key="frame" x="20" y="13" width="177" height="18"/>
+                    <rect key="frame" x="20" y="46" width="177" height="18"/>
                     <buttonCell key="cell" type="check" title="Save to Downloads folder" bezelStyle="regularSquare" imagePosition="left" enabled="NO" state="on" inset="2" id="r8R-rB-PKL">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wnt-lg-agv">
-                    <rect key="frame" x="20" y="39" width="109" height="18"/>
+                    <rect key="frame" x="20" y="72" width="109" height="18"/>
                     <buttonCell key="cell" type="check" title="Save as webm" bezelStyle="regularSquare" imagePosition="left" inset="2" id="M7g-Qe-4ER">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
@@ -39,7 +39,7 @@
                     </connections>
                 </button>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="TIX-ip-7e3">
-                    <rect key="frame" x="442" y="35" width="30" height="30"/>
+                    <rect key="frame" x="442" y="52" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="TIX-ip-7e3" secondAttribute="height" multiplier="1:1" id="Z8e-Eb-ORL"/>
                         <constraint firstAttribute="width" constant="30" id="gVp-JD-hV5"/>
@@ -51,6 +51,14 @@
                     <connections>
                         <action selector="onAddButtonPress:" target="c22-O7-iKe" id="bF0-Hk-1hA"/>
                     </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iB9-7P-l4F">
+                    <rect key="frame" x="21" y="18" width="137" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Save as mp3 (WIP)" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="YAv-qL-i2g">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
                 </button>
             </subviews>
             <constraints>
@@ -66,7 +74,7 @@
             <connections>
                 <outlet property="mp3Button" destination="Wnt-lg-agv" id="YCc-Ru-Ons"/>
             </connections>
-            <point key="canvasLocation" x="139" y="88"/>
+            <point key="canvasLocation" x="139" y="104.5"/>
         </customView>
     </objects>
     <resources>
