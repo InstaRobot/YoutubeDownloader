@@ -73,6 +73,7 @@ final class MainViewController: NSViewController {
   private func setupStackView() {
     stackView.orientation = .vertical
     stackView.edgeInsets = NSEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
+    stackView.spacing = 0
     
     var views: NSArray?
     NSNib(nibNamed: NSNib.Name("AddRow"), bundle: nil)?.instantiate(withOwner: nil, topLevelObjects: &views)
