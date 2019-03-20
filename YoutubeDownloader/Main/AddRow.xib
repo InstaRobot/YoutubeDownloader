@@ -20,14 +20,14 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zeN-qX-NTi">
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zeN-qX-NTi" customClass="TextButton" customModule="YoutubeDownloader" customModuleProvider="target">
                     <rect key="frame" x="20" y="46" width="177" height="18"/>
                     <buttonCell key="cell" type="check" title="Save to Downloads folder" bezelStyle="regularSquare" imagePosition="left" enabled="NO" state="on" inset="2" id="r8R-rB-PKL">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wnt-lg-agv">
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wnt-lg-agv" customClass="TextButton" customModule="YoutubeDownloader" customModuleProvider="target">
                     <rect key="frame" x="20" y="72" width="109" height="18"/>
                     <buttonCell key="cell" type="check" title="Save as webm" bezelStyle="regularSquare" imagePosition="left" inset="2" id="M7g-Qe-4ER">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -51,7 +51,7 @@
                         <action selector="onAddButtonPress:" target="c22-O7-iKe" id="bF0-Hk-1hA"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iB9-7P-l4F">
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iB9-7P-l4F" customClass="TextButton" customModule="YoutubeDownloader" customModuleProvider="target">
                     <rect key="frame" x="21" y="18" width="137" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Save as mp3 (WIP)" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="YAv-qL-i2g">

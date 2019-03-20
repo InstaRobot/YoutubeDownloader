@@ -27,6 +27,7 @@
 		D26FF866223FE58D0006C1D7 /* AddRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26FF865223FE58D0006C1D7 /* AddRow.xib */; };
 		D2CD121722422BF800681C5F /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD121622422BF800681C5F /* Color+Extension.swift */; };
 		D2CD121922422C4500681C5F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD121822422C4500681C5F /* Colors.swift */; };
+		D2CD121D224238F000681C5F /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD121C224238F000681C5F /* TextButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		D26FF865223FE58D0006C1D7 /* AddRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRow.xib; sourceTree = "<group>"; };
 		D2CD121622422BF800681C5F /* Color+Extension.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; tabWidth = 2; };
 		D2CD121822422C4500681C5F /* Colors.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; tabWidth = 2; };
+		D2CD121C224238F000681C5F /* TextButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 		D203D00C1E7469EE00F5E0A6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D2CD121C224238F000681C5F /* TextButton.swift */,
 				D203D0101E746A7D00F5E0A6 /* Task.swift */,
 				D203D0151E7490B500F5E0A6 /* Config.swift */,
 				D203D0171E74913500F5E0A6 /* Worker.swift */,
@@ -344,6 +347,7 @@
 				D203D0141E74720700F5E0A6 /* DispatchQueue+Extensions.swift in Sources */,
 				D26FF864223FE1DF0006C1D7 /* Validator.swift in Sources */,
 				D26FF860223FBCBE0006C1D7 /* Label.swift in Sources */,
+				D2CD121D224238F000681C5F /* TextButton.swift in Sources */,
 				D203D01A1E7495C500F5E0A6 /* Utils.swift in Sources */,
 				D203D0161E7490B500F5E0A6 /* Config.swift in Sources */,
 				D203D0111E746A7D00F5E0A6 /* Task.swift in Sources */,

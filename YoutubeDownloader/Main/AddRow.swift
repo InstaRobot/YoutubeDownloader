@@ -22,5 +22,15 @@ final class AddRow: NSView {
   
   override func viewDidMoveToSuperview() {
     super.viewDidMoveToSuperview()
+    
+    subviews.forEach {
+      guard let textButton = $0 as? TextButton else {
+        return
+      }
+
+      textButton.textColor = Colors.text
+      textButton.textSize = 13
+      textButton.update()
+    }
   }
 }
