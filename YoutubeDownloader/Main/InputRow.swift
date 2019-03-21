@@ -203,12 +203,12 @@ extension InputRow: TaskDelegate {
       topLine.topAnchor.constraint(equalTo: topAnchor),
       topLine.leftAnchor.constraint(equalTo: leftAnchor),
       topLine.rightAnchor.constraint(equalTo: rightAnchor),
-      topLine.heightAnchor.constraint(equalToConstant: 1),
+      topLine.heightAnchor.constraint(equalToConstant: 0.5),
       
       bottomLine.bottomAnchor.constraint(equalTo: bottomAnchor),
       bottomLine.leftAnchor.constraint(equalTo: leftAnchor),
       bottomLine.rightAnchor.constraint(equalTo: rightAnchor),
-      bottomLine.heightAnchor.constraint(equalToConstant: 1)
+      bottomLine.heightAnchor.constraint(equalToConstant: 0.5)
     ])
   }
 }
