@@ -14,8 +14,8 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gkJ-Mw-NLV">
-                    <rect key="frame" x="20" y="97" width="179" height="24"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Youtube Downloader" id="Y0A-iE-mhe">
+                    <rect key="frame" x="20" y="97" width="158" height="24"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Video Downloader" id="Y0A-iE-mhe">
                         <font key="font" metaFont="system" size="20"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
