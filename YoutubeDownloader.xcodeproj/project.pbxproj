@@ -48,7 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D203CFDB1E74691800F5E0A6 /* YoutubeDownloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoutubeDownloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D203CFDB1E74691800F5E0A6 /* Video Downloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Video Downloader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D203CFDE1E74691800F5E0A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D203CFE21E74691800F5E0A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D203CFE51E74691800F5E0A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 		D203CFDC1E74691800F5E0A6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D203CFDB1E74691800F5E0A6 /* YoutubeDownloader.app */,
+				D203CFDB1E74691800F5E0A6 /* Video Downloader.app */,
 				D203CFEC1E74691800F5E0A6 /* YoutubeDownloaderTests.xctest */,
 				D203CFF71E74691800F5E0A6 /* YoutubeDownloaderUITests.xctest */,
 			);
@@ -218,7 +218,7 @@
 			);
 			name = YoutubeDownloader;
 			productName = YoutubeDownloader;
-			productReference = D203CFDB1E74691800F5E0A6 /* YoutubeDownloader.app */;
+			productReference = D203CFDB1E74691800F5E0A6 /* Video Downloader.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D203CFEB1E74691800F5E0A6 /* YoutubeDownloaderTests */ = {
@@ -519,7 +519,7 @@
 				INFOPLIST_FILE = YoutubeDownloader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fantageek.YoutubeDownloader;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Video Downloader";
 			};
 			name = Debug;
 		};
@@ -532,7 +532,7 @@
 				INFOPLIST_FILE = YoutubeDownloader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fantageek.YoutubeDownloader;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Video Downloader";
 			};
 			name = Release;
 		};
